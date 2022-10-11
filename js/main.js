@@ -1,11 +1,19 @@
-const robotron = document.querySelector('#robotron');
+const braco = document.querySelector("#braco");
 
-robotron.addEventListener("click", (evento) => {
-    console.log(evento);
-} );
+const controle = document.querySelectorAll(".controle-ajuste");
 
-function testeLog() {
-    console.log("teste");
+controle.forEach( (elemento) =>{
+    elemento.addEventListener("click", (evento)=>{
+        manipulaDados(evento.target.textContent);
+        console.log("click");
+    })
+});
+
+function manipulaDados(operador) {
+    if (operador === "+" ) {
+        braco.value = parseInt(braco.value) + 1;
+    }
+    else{
+        braco.value = parseInt(braco.value) - 1;
+    }
 }
-
-testeLog();
