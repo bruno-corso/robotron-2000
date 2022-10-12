@@ -52,20 +52,26 @@ controles.forEach( (elemento) =>{
 function manipulaDados(operador, qualPeca) {
     const peca = qualPeca.querySelector("[data-contador]");
     if (operador === "+" ) {
+        // somar 1 no contator
         peca.value = parseInt(peca.value) + 1;
     }
     else{
+        // subtrair 1 no contator
         peca.value = parseInt(peca.value) - 1;
     }
 }
 
+//funcao ajustaEstatistica('qual a operação que vai fazer', 'qual bloco do meu doc HTML estou interagindo')
 function ajustaEstatistica(operador, qualPeca) {
     if (operador === "+" ) {
+        //percorrer cada elemento do array 'estatisticas'
         estatisticas.forEach( (elemento) => {
+            //pegar o atual valor da estatistica e somar o impacto de cada tipo de peca declarado dentro do array 'pecas' 
             elemento.textContent = parseInt(elemento.textContent) + pecas[qualPeca][elemento.dataset.estatistica];
         })
     }
     else{
+            //pegar o atual valor da estatistica e subtrair o impacto de cada tipo de peca declarado dentro do array 'pecas'
         estatisticas.forEach( (elemento) => {
             elemento.textContent = parseInt(elemento.textContent) - pecas[qualPeca][elemento.dataset.estatistica];
         })
